@@ -52,5 +52,49 @@ export function render(element, container) {
   // TODO: 여기를 구현하세요.
   // 힌트: element.type으로 태그를 만들고, element.props의 children을 순회하면서
   // 문자열/숫자면 텍스트 노드로, 객체면 재귀적으로 render 하면 됩니다.
-  
+  const outer = document.createElement(element.type);
+  container.appendChild(outer);
+  if (element.props.className) outer.className = element.props.className;
+
+  const renderChildren = (outer, element) => {
+    console.log("outer", outer);
+    console.log("element", element);
+
+    if (Array.isArray(element.props.children)) {
+      for (const child of element.props.children) {
+        const inner = document.createElement(child.type);
+
+        console.log("child", child);
+        console.log("inner", inner);
+
+        outer.appendChild(inner);
+        if (child.props.className) inner.className = child.props.className;
+
+        if (
+          typeof child.props.children === "string" ||
+          typeof child.props.children === "number"
+        ) {
+          const textNode = document.createTextNode(child.props.children);
+          inner.appendChild(textNode);
+        } else if (Array.isArray(child.props.children)) {
+          renderChildren(inner, child);
+        }
+      }
+    } else if (
+      typeof element.props.children === "string" ||
+      typeof element.props.children === "number"
+    ) {
+      const textNode = document.createTextNode(element.props.children);
+      outer.appendChild(textNode);
+    } else if (typeof element.props.children === "object") {
+      const inner = document.createElement(element.props.children.type);
+      outer.appendChild(inner);
+      if (element.props.children.props.className)
+        inner.className = element.props.children.props.className;
+
+      renderChildren(inner, element.props.children);
+    }
+  };
+
+  renderChildren(outer, element);
 }
