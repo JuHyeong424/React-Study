@@ -1,0 +1,9 @@
+{
+  "name": "mini-react-day1",
+  "version": "0.0.1",
+  "type": "module",
+  "description": "미니 React 직접 구현 - Day 1 (createElement + 정적 렌더링)",
+  "scripts": {
+    "test": "node test/day1-spec.js"
+  }
+}
