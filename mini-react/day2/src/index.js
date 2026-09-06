@@ -6,13 +6,7 @@ export function createElement(type, props, ...children) {
     updatedChildren = updatedChildren[0];
   }
 
-  let updatedProps = props;
-
-  if (updatedProps) {
-    updatedProps.children = updatedChildren;
-  } else {
-    updatedProps = { children: updatedChildren };
-  }
+  let updatedProps = { ...props, children: updatedChildren };
 
   return {
     type: type,
