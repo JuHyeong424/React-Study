@@ -6,7 +6,8 @@
   "scripts": {
     "test:day1": "node day1/test/day1-spec.js",
     "test:day1:render": "node day1/test/render-spec.js",
-    "test:day2": "node day2/test/component-spec.js"
+    "test:day2": "node day2/test/component-spec.js",
+    "test:day3": "node day3/test/day3-spec.js"
   },
   "devDependencies": {
     "jsdom": "^24.0.0"
