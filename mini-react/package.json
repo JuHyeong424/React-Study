@@ -10,7 +10,8 @@
     "test:day3": "node day3/test/day3-spec.js",
     "test:day4": "node day4/test/day4-spec.js",
     "test:day5": "node day5/test/day5-spec.js",
-    "test:day6": "node day6/test/day6-spec.js"
+    "test:day6": "node day6/test/day6-spec.js",
+    "test:day7": "node day7/test/day7-spec.js"
   },
   "devDependencies": {
     "jsdom": "^24.0.0"
